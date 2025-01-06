@@ -73,9 +73,9 @@ Here are some amazing resources I have used throughout my journey:
   - "Beginning Flutter" by Marco L. Napoli
 
 ---
-
+<!--
 ## 📂 Projects
-/*
+
 These are some of the Flutter projects I’ve worked on:
 
 ### 1. **Flutter Todo App**
@@ -99,7 +99,7 @@ These are some of the Flutter projects I’ve worked on:
 - [Flutter YouTube](https://www.youtube.com/flutterdev)
 
 ---
-
+-->
 ## 🙏 Acknowledgements
 
 A big thank you to all the amazing Flutter developers and the open-source community for creating these fantastic resources. Your contributions have made it much easier for learners like me to get started and succeed with Flutter.
