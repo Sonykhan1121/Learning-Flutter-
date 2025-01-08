@@ -5,10 +5,8 @@ class Superclass {
 
 class Subclass extends Superclass {
   int age;
-  Subclass(String name, this.age) : super(name)
-  {
-    print("hey there");
-  }
+  Subclass(super.name, this.age) ;
+    
 }
 
 void main() {

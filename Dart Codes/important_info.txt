@@ -1,0 +1,148 @@
+
+
+1. What is Synchronous Code?
+- Synchronous code runs step-by-step. Each line of code waits for the previous one to finish before executing.
+- Everything happens in a predictable, sequential manner.
+
+Example of Synchronous Code:
+dart
+void main() {
+  print('Step 1');
+  print('Step 2');
+  print('Step 3');
+}
+
+
+Output:
+
+Step 1
+Step 2
+Step 3
+
+
+ Each `print` statement executes one after another.
+
+
+
+2. What is Asynchronous Code?
+- Asynchronous code does not wait for a task to finish before moving to the next one.
+- It allows the program to handle tasks like network requests, file reading, or timers without blocking the main thread.
+
+Example of Asynchronous Code:
+dart
+void main() async {
+  print('Step 1');
+  await Future.delayed(Duration(seconds: 2));
+  print('Step 2');
+  print('Step 3');
+}
+
+
+Output:
+plaintext
+Step 1
+(wait 2 seconds)
+Step 2
+Step 3
+
+
+- `Step 1` is printed immediately.
+- `await Future.delayed` causes a 2-second delay before `Step 2` is printed.
+- Asynchronous code makes sure the program doesn’t freeze while waiting for long tasks to complete.
+
+
+
+3. What is a Future?
+- A Future represents a value that will be available later.
+- Think of it as a promise: “I’ll give you the result when I’m done.”
+- Futures are used for tasks like fetching data from the internet, reading files, or running delayed tasks.
+
+Example of a Future:
+dart
+Future<String> fetchData() async {
+  await Future.delayed(Duration(seconds: 2)); // Simulates a delay
+  return 'Data fetched!';
+}
+
+void main() async {
+  print('Fetching data...');
+  String data = await fetchData();
+  print(data);
+}
+
+
+Output:
+plaintext
+Fetching data...
+(wait 2 seconds)
+Data fetched!
+
+
+- `await fetchData()` waits for the Future to complete and returns its result.
+
+
+
+4. What is a Stream?
+- A Stream is like a pipeline that sends multiple pieces of data over time.
+- Instead of getting one result (like a Future), you get a series of results.
+- Streams are useful for:
+  - Handling real-time data (e.g., user input, events).
+  - Watching a database or network changes.
+
+Example of a Stream:
+dart
+Stream<int> countStream() async* {
+  for (int i = 1; i <= 3; i++) {
+    await Future.delayed(Duration(seconds: 1)); // Simulate delay
+    yield i; // Emit a value
+  }
+}
+
+void main() async {
+  print('Counting:');
+  await for (int number in countStream()) {
+    print(number); // Print each number as it's emitted
+  }
+}
+
+
+Output:
+plaintext
+Counting:
+1
+2
+3
+
+
+- The `countStream` emits values (`1`, `2`, `3`) one at a time with a delay in between.
+
+
+
+5. Key Differences Between Future and Stream
+| Feature       | Future                           | Stream                            |
+|---------------|----------------------------------|-----------------------------------|
+| Type          | Single value (or error)         | Multiple values (or errors)      |
+| When          | Completes once                  | Can keep running indefinitely    |
+| Example       | Fetching a file                 | Streaming live data (e.g., chat) |
+
+
+
+6. When to Use What?
+- Use Futures for one-time operations:
+  - Fetching data from an API.
+  - Saving a file.
+  - Waiting for a timer.
+
+- Use Streams for continuous data:
+  - Real-time data like user inputs.
+  - Listening to changes in a database.
+  - Receiving chat messages or notifications.
+
+
+
+Summary
+1. Synchronous: Runs step by step, blocking each step until it finishes.
+2. Asynchronous: Runs without waiting, allowing other tasks to continue.
+3. Future: A one-time promise that completes later.
+4. Stream: A pipeline that delivers multiple pieces of data over time.
+
