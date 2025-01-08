@@ -2,7 +2,7 @@ void main() {
   int a = 5;
   double b = 5.515;
 
-  String name = "THT";
+  String name = "THT-limited";
   bool male = true;
 
   List<String> names = ["sakib", "mahmudullah riad", "musfiq", "Santo"];
@@ -17,5 +17,5 @@ void main() {
   print(names);
   print(st);
   print(jersey_number);
-  
+  print(name.toUpperCase());
 }
