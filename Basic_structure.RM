@@ -1,0 +1,54 @@
+Project Root
+│
+├── lib
+│   ├── main.dart
+│       ├── import statements
+│           ├── dart:io
+│           ├── flutter/material.dart
+│           ├── fluttertoast.dart
+│           ├── image_picker.dart
+│
+│       ├── MaterialApp
+│           ├── Scaffold
+│               ├── AppBar
+│                   ├── Title: "Image Picker"
+│                   ├── Background Color: amber
+│
+│               ├── Body: Column
+│                   ├── Container
+│                       ├── Margin: 10
+│                       ├── Background Color: black
+│                       ├── Width: double.infinity
+│                       ├── Height: 500
+│                       ├── Content
+│                           ├── If _image != null: Image.file
+│                           ├── Else: Image.asset ('assets/images/test1.png')
+│
+│                   ├── Row
+│                       ├── MainAxisAlignment: spaceEvenly
+│                       ├── Buttons
+│                           ├── ElevatedButton
+│                               ├── Text: "Pick from gallery"
+│                               ├── Action: pickImageFromGallery()
+│                           ├── ElevatedButton
+│                               ├── Text: "Camera"
+│                               ├── Action: pickImageFromCamera()
+│
+│       ├── Functions
+│           ├── pickImageFromGallery()
+│               ├── Opens gallery picker
+│               ├── Sets _image to selected file or null
+│               ├── Error: Displays toast message
+│
+│           ├── pickImageFromCamera()
+│               ├── Opens camera picker
+│               ├── Sets _image to captured file or null
+│               ├── Error: Displays toast message
+│
+├── assets
+│   ├── images
+│       ├── test1.png
+│
+├── pubspec.yaml
+│   ├── Assets Configuration
+│       ├── assets/images/
