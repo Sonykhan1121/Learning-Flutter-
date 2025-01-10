@@ -1,0 +1,53 @@
+### add variable
+File? _image;
+### add pub get:
+ image_picker: ^1.1.2
+### set asset folder:
+    assets:
+    - assets/
+    - assets/images/
+### functions :
+Future<void> pickImageFromGallery() async {
+    final ImagePicker picker = ImagePicker();
+    try {
+      final XFile? pickedFile =
+          await picker.pickImage(source: ImageSource.gallery);
+      if (pickedFile != null) {
+        setState(() {
+          _image = File(pickedFile.path);
+        });
+      } else {
+        _image = null;
+      }
+    } catch (e) {
+      Fluttertoast.showToast(msg: "Image Picker Problem");
+    }
+  }
+
+  Future<void> pickImageFromCamera() async {
+    final ImagePicker picker = ImagePicker();
+    try {
+      final XFile? pickedFile =
+          await picker.pickImage(source: ImageSource.camera);
+      if (pickedFile != null) {
+        setState(() {
+          _image = File(pickedFile.path);
+        });
+      } else {
+        _image = null;
+      }
+    } catch (e) {
+      Fluttertoast.showToast(msg: "Image Picker Problem");
+    }
+  }
+### image set:
+_image != null
+                  ? Image.file(
+                      _image!,
+                      fit: BoxFit.cover,
+                    )
+                  : Image.asset(
+                      'assets/images/test1.png',
+                      height: 150,
+                      fit: BoxFit.cover,
+                    ),
