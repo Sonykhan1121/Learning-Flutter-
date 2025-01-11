@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter30dayschallenge/pages/home_page.dart';
+import 'package:flutter30dayschallenge/pages/imagepage.dart';
 
 void main() {
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    title: "30 days Challenges",
-    home: Scaffold(
-      appBar: AppBar(
-        title: Text("Day 1"),
-      ),
-      body: Center(
-        child: Text("Flutter 30 days Challenges"),
-      ),
-    ),
-  ));
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget
+{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+      return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: "30 days Challenges",
+        home: Imagepage(),
+      );
+  }
+
 }
