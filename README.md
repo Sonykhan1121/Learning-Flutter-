@@ -2,112 +2,18 @@
 
 Welcome to my **Learning Flutter** repository! Here, I’m documenting my entire journey of learning **Flutter** and **Dart** to build beautiful, cross-platform mobile applications. This repository contains all my code examples, tutorials, projects, and helpful resources that I’ve collected and worked on during this learning process.
 
-## 📚 Table of Contents
+# Images of My practices:
 
-- [Introduction](#-introduction)
-- [Learning Path](#-learning-path)
-- [Resources](#-resources)
-- [Projects](#-projects)
-- [Useful Links](#-useful-links)
-- [Acknowledgements](#-acknowledgements)
+![l1](https://github.com/user-attachments/assets/5d1d30c1-1721-4013-b53b-1e91c0275620)
+![l2](https://github.com/user-attachments/assets/135ad2dc-a44c-4bf2-af36-0405a80ee43e)
+![l3](https://github.com/user-attachments/assets/0a4079c4-f883-4513-8901-0b8a5173c788)
+![l4](https://github.com/user-attachments/assets/ade1e024-cc90-4b92-8fb5-dd3ef1ee9eea)
 
----
 
-## 💡 Introduction
-
-I started learning **Flutter** to build native mobile apps for both **iOS** and **Android** with a single codebase. It’s been an amazing journey, and I’m constantly discovering new things as I go along. This repository serves as a collection of my learning process, challenges, and accomplishments.
-
----
-
-## 🛠️ Learning Path
-
-Here is an overview of the topics and skills I’ve been learning:
-
-1. **Introduction to Flutter & Dart**
-   - Setting up the development environment
-   - Basics of the Dart programming language
-   - Understanding widgets in Flutter
-
-2. **Flutter Widgets**
-   - Stateful vs Stateless Widgets
-   - Layouts in Flutter: Rows, Columns, Containers, etc.
-   - Custom widgets and how to create them
-
-3. **State Management**
-   - Provider, Riverpod, and BLoC patterns
-   - Managing state across multiple screens
-
-4. **Networking**
-   - HTTP requests and APIs in Flutter
-   - Parsing JSON data
-   - Handling asynchronous data
-
-5. **Flutter UI Design**
-   - Material and Cupertino widgets
-   - Custom animations and transitions
-   - Building responsive UIs for different screen sizes
-
-6. **Flutter Navigation**
-   - Navigating between screens
-   - Passing data between screens
-   - Using named routes
-
-7. **Testing in Flutter**
-   - Unit testing, widget testing, and integration testing
-   - Mocking API calls for tests
-
----
-
-## 🔗 Resources
-
-Here are some amazing resources I have used throughout my journey:
-
-- **Flutter Official Documentation**: [flutter.dev](https://flutter.dev/docs)
-- **Dart Programming Language**: [dart.dev](https://dart.dev/guides)
-- **Udemy Course**: [Flutter & Dart - The Complete Guide](https://www.udemy.com/course/learn-flutter-dart-to-build-ios-android-apps/)
-- **YouTube Channels**:
-  - [Academind](https://www.youtube.com/c/Academind)
-  - [The Net Ninja](https://www.youtube.com/c/TheNetNinja)
-- **Books**:
-  - "Flutter for Beginners" by Alessandro Biessek
-  - "Beginning Flutter" by Marco L. Napoli
-
----
-<!--
-## 📂 Projects
-
-These are some of the Flutter projects I’ve worked on:
-
-### 1. **Flutter Todo App**
-   - A simple todo app built with Flutter to understand the basics of CRUD operations and state management.
-   - [View the code](./projects/todo-app)
-
-### 2. **Weather App**
-   - A weather app that fetches live weather data using an external API and displays it on a beautiful UI.
-   - [View the code](./projects/weather-app)
-
-### 3. **Calculator App**
-   - A fully functional calculator app to practice UI design and logic handling in Flutter.
-   - [View the code](./projects/calculator-app)
-*/
----
-
-## 🔗 Useful Links
-
-- [Flutter Dev Community](https://flutter.dev/community)
-- [Flutter Awesome](https://flutterawesome.com/)
-- [Flutter YouTube](https://www.youtube.com/flutterdev)
-
----
--->
 ## 🙏 Acknowledgements
 
 A big thank you to all the amazing Flutter developers and the open-source community for creating these fantastic resources. Your contributions have made it much easier for learners like me to get started and succeed with Flutter.
 
----
-
 ## 👀 Stay Connected
-
-
 
 ✨ **Happy Coding!** ✨
