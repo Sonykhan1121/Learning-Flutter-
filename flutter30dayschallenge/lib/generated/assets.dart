@@ -3,6 +3,10 @@ class Assets {
   Assets._();
 
   static const String assets11 = 'assets/11.jpg';
+  static const String assetsFb = 'assets/fb.png';
+  static const String assetsInsta = 'assets/insta.png';
   static const String assetsLoginLogo = 'assets/login_logo.png';
+  static const String assetsSignup = 'assets/signup.png';
+  static const String assetsYou = 'assets/you.png';
 
 }
