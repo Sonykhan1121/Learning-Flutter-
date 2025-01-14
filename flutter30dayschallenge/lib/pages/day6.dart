@@ -16,7 +16,7 @@ class _Day6State extends State<Day6> {
       child: Scaffold(
         appBar: AppBar(
           title: Text('Day 6'),
-          backgroundColor: Colors.red,
+        //
         ),
         body: Center(
           child: Column(
