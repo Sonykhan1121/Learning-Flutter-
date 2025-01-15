@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter30dayschallenge/pages/grid_view_builder.dart';
+import 'package:flutter30dayschallenge/pages/grid_view_example.dart';
 import 'package:flutter30dayschallenge/pages/home_page.dart';
+import 'package:flutter30dayschallenge/pages/list_view_example.dart';
 import 'package:flutter30dayschallenge/pages/loginpage.dart';
+import 'package:flutter30dayschallenge/pages/page_view_builder.dart';
 import 'package:flutter30dayschallenge/pages/signup.dart';
 
 import 'day8.dart';
+import 'list_view_builder_example.dart';
 
 class OnGenerateRoute{
   static Route<dynamic> route(RouteSettings settings)
@@ -11,7 +16,7 @@ class OnGenerateRoute{
     final args = settings.arguments;
     if(settings.name =='/')
       {
-        return MaterialPageRoute(builder: (context)=>Day8());
+        return MaterialPageRoute(builder: (context)=>PageViewBuilder());
 
       }
     else if(settings.name =='/home')
