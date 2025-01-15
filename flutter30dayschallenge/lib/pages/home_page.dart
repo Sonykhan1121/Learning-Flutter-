@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
+import 'day8.dart';
+
 class HomePage extends StatelessWidget {
+  final UserData userData;
+
+  HomePage(this.userData);
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -12,18 +18,18 @@ class HomePage extends StatelessWidget {
       body: Center(
         child: Container(
 
-          height: 400,
-          width: 400,
+          height: 500,
+          width: 500,
           alignment: Alignment.center,
-          margin: EdgeInsets.all(20),
+          margin: EdgeInsets.all(10),
           padding: EdgeInsets.all(10),
           decoration: BoxDecoration(
             color: Colors.amberAccent,
-            borderRadius: BorderRadius.all(Radius.circular(30)),
+            borderRadius: BorderRadius.all(Radius.circular(15)),
           ),
           child: Center(
             child: Text(
-              "Flutter 30 days Challenges",
+              "Flutter 30 days Challenges :\n ${userData.username} \n${userData.userId}",
               style: TextStyle(
                 backgroundColor: Colors.black,
                 fontSize: 40,
