@@ -1,4 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter30dayschallenge/pages/youtube_search/model/youtube_search_model.dart';
 
 class YoutubeSearchPage extends StatefulWidget {
   const YoutubeSearchPage({super.key});
@@ -7,9 +11,25 @@ class YoutubeSearchPage extends StatefulWidget {
   State<YoutubeSearchPage> createState() => _YoutubeSearchPageState();
 }
 
+
+
 class _YoutubeSearchPageState extends State<YoutubeSearchPage> {
   bool _isSearch = false;
   int navIndex = 0;
+  @override
+  void initState() {
+    // TODO: implement initState
+    _loadMockDataFromAssets();
+    super.initState();
+  }
+  Future<void> _loadMockDataFromAssets() async
+  {
+    final assetsData = await rootBundle.loadString('assets/youtube_search.json');
+    final res = YoutubeSearchModel.fronJson(jsonDecode(assetsData));
+    print(res.items?[0].snippet?.thumbnails?.high?.url);
+
+
+  }
 
   Widget _searchWidget() {
     return Row(
@@ -101,13 +121,16 @@ class _YoutubeSearchPageState extends State<YoutubeSearchPage> {
                         width: 20,
                       ),
                       SizedBox(
-                        width: 50,
+                        width: 40,
                         height: 40,
                         child: ClipRRect(
                           borderRadius: BorderRadius.all(
-                            Radius.circular(30),
+                            Radius.circular(20),
                           ),
-                          child: Image.asset('assets/profile2.jpg'),
+                          child: Image.asset(
+                            'assets/profile2.jpg',
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                     ],
