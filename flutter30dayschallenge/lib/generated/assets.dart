@@ -6,7 +6,12 @@ class Assets {
   static const String assetsFb = 'assets/fb.png';
   static const String assetsInsta = 'assets/insta.png';
   static const String assetsLoginLogo = 'assets/login_logo.png';
+  static const String assetsProfile = 'assets/profile.jpg';
+  static const String assetsProfile1 = 'assets/profile1.jpg';
+  static const String assetsProfile2 = 'assets/profile2.jpg';
   static const String assetsSignup = 'assets/signup.png';
   static const String assetsYou = 'assets/you.png';
+  static const String assetsYoutubeLogo = 'assets/youtube_logo.png';
+  static const String assetsYoutubeSearch = 'assets/youtube_search.json';
 
 }
