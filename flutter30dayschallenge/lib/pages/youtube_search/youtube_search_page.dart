@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter30dayschallenge/pages/youtube_search/model/youtube_search_model.dart';
 
+import 'model/item_data.dart';
+
 class YoutubeSearchPage extends StatefulWidget {
   const YoutubeSearchPage({super.key});
 
@@ -11,24 +13,30 @@ class YoutubeSearchPage extends StatefulWidget {
   State<YoutubeSearchPage> createState() => _YoutubeSearchPageState();
 }
 
-
-
 class _YoutubeSearchPageState extends State<YoutubeSearchPage> {
   bool _isSearch = false;
+  bool _isLoading = true;
   int navIndex = 0;
+  List<ItemData> items = [];
+
   @override
   void initState() {
     // TODO: implement initState
     _loadMockDataFromAssets();
     super.initState();
   }
-  Future<void> _loadMockDataFromAssets() async
-  {
-    final assetsData = await rootBundle.loadString('assets/youtube_search.json');
+
+  Future<void> _loadMockDataFromAssets() async {
+    Future.delayed(Duration(seconds: 3), () {
+      setState(() {
+        _isLoading = false;
+      });
+    });
+    final assetsData =
+        await rootBundle.loadString('assets/youtube_search.json');
     final res = YoutubeSearchModel.fronJson(jsonDecode(assetsData));
-    print(res.items?[0].snippet?.thumbnails?.high?.url);
-
-
+    // print(res.items?[0].snippet?.thumbnails?.high?.url);
+    items = res.items!;
   }
 
   Widget _searchWidget() {
@@ -138,56 +146,69 @@ class _YoutubeSearchPageState extends State<YoutubeSearchPage> {
                 ],
               ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.red,
-        unselectedItemColor: Colors.grey,
-        showUnselectedLabels: true,
-        currentIndex: navIndex,
-        onTap: (index) {
-          setState(() {
-            navIndex = index;
-          });
-        },
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.explore), label: "Explore"),
-          BottomNavigationBarItem(icon: Icon(Icons.add), label: "Create"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.attach_money), label: "Subscription"),
-          BottomNavigationBarItem(icon: Icon(Icons.wysiwyg), label: "Library"),
-        ],
-      ),
-      body: ListView.builder(
-        itemCount: 8,
-        itemBuilder: (context, index) {
-          return Card(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  height: 400,
-                  width: double.infinity,
-                  color: Colors.grey,
-                  child: Center(
-                    child: Text('Thumb Image'),
-                  ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  'Title',
-                  maxLines: 2,
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  'Channel Title',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
-                ),
+      bottomNavigationBar: _isLoading == true
+          ? Center(
+              child: CircularProgressIndicator(),
+            )
+          : BottomNavigationBar(
+              selectedItemColor: Colors.red,
+              unselectedItemColor: Colors.grey,
+              showUnselectedLabels: true,
+              currentIndex: navIndex,
+              onTap: (index) {
+                setState(() {
+                  navIndex = index;
+                });
+              },
+              items: [
+                BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.explore), label: "Explore"),
+                BottomNavigationBarItem(icon: Icon(Icons.add), label: "Create"),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.attach_money), label: "Subscription"),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.wysiwyg), label: "Library"),
               ],
+            ),
+      body: ListView.builder(
+        itemCount: items?.length,
+        itemBuilder: (context, index) {
+          return InkWell(
+            onTap: (){
+              Navigator.pushNamed(context, '/playVideo', arguments: items[index]);
+            },
+            child: Card(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    height: 400,
+                    width: double.infinity,
+                    color: Colors.grey,
+                    child: Image.network(
+                      items[index].snippet!.thumbnails!.high!.url!,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    '${items[index].snippet!.channelTitle}',
+                    maxLines: 2,
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                    maxLines: 3,
+                    '${items[index].snippet!.description}',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                  ),
+                ],
+              ),
             ),
           );
         },
