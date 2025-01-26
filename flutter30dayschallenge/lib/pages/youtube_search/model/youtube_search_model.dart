@@ -18,7 +18,7 @@ class YoutubeSearchModel {
     this.pageInfo,
     this.items,
   });
-  factory YoutubeSearchModel.fronJson(Map<String,dynamic> json)
+  factory YoutubeSearchModel.fromJson(Map<String,dynamic> json)
   {
     // final all = json['items'] as List<dynamic>? ?? [];
     List<ItemData> items = (json['items'] as List<dynamic>).map((value)=>ItemData.fromJson(value)).toList();
